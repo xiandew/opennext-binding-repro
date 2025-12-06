@@ -43,6 +43,18 @@ This repository reproduces an issue where `FormData` is serialized as `text/plai
     - **Actual**: Backend receives `multipart/form-data`.
     - *Diagnosis*: Direct fetch to `http://127.0.0.1:8788` works correctly, proving the issue is isolated to the Service Binding proxy.
 
+7.  **Test Case 3: Plain Worker (The Control 2)**
+    - Start the plain frontend (in a separate terminal):
+      ```bash
+      cd apps/frontend-plain
+      pnpm install
+      pnpm dev
+      ```
+    - Open the plain frontend URL (usually http://localhost:8787/test).
+    - **Expected**: Backend receives `multipart/form-data`.
+    - **Actual**: Backend receives `multipart/form-data`.
+    - *Diagnosis*: A standard Cloudflare Worker using Service Binding works correctly, further isolating the issue to `@opennextjs/cloudflare`.
+
 ## Notes
 
 This issue seems specific to the `initOpenNextCloudflareForDev` proxy in `@opennextjs/cloudflare` when running in `next dev`.
