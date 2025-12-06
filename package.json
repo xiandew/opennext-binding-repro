@@ -1,0 +1,12 @@
+{
+  "name": "cf-binding-repro",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r --parallel dev"
+  },
+  "devDependencies": {
+    "wrangler": "latest",
+    "@cloudflare/workers-types": "latest",
+    "typescript": "latest"
+  }
+}
